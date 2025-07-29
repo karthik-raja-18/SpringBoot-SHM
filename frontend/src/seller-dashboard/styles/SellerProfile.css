@@ -15,6 +15,7 @@
   align-items: center;
   margin-bottom: 2rem;
   flex-wrap: wrap;
+  color: black;
 }
 
 .header-content h1 {

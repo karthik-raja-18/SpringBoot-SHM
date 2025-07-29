@@ -17,7 +17,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = {"http://localhost:3000", "process.env.REACT_APP_API_BASE_URL"}, allowCredentials = "true")
+@CrossOrigin(origins = {"process.env.REACT_APP_API_BASE_URL", "process.env.REACT_APP_API_BASE_URL"}, allowCredentials = "true")
 public class ProductController {
 
     @Autowired

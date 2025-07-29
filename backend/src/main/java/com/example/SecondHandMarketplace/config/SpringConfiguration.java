@@ -48,7 +48,7 @@ public class SpringConfiguration {
     @Bean
 public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration config = new CorsConfiguration();
-    config.setAllowedOrigins(List.of("http://localhost:3000"));
+    config.setAllowedOrigins(List.of("process.env.REACT_APP_API_BASE_URL"));
     config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
     config.setAllowedHeaders(List.of(
         "Authorization", "Content-Type", "Cache-Control", "Pragma", "X-Requested-With", "Accept", "Origin", "Expires"
@@ -63,7 +63,7 @@ public CorsConfigurationSource corsConfigurationSource() {
 @Bean
 public org.springframework.web.filter.CorsFilter corsFilter() {
     org.springframework.web.cors.CorsConfiguration config = new org.springframework.web.cors.CorsConfiguration();
-    config.setAllowedOrigins(List.of("http://localhost:3000"));
+    config.setAllowedOrigins(List.of("process.env.REACT_APP_API_BASE_URL"));
     config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
     config.setAllowedHeaders(List.of(
         "Authorization", "Content-Type", "Cache-Control", "Pragma", "X-Requested-With", "Accept", "Origin", "Expires"

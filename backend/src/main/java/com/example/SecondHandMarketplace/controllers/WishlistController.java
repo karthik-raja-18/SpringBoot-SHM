@@ -20,7 +20,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/wishlist")
 @PreAuthorize("hasRole('ROLE_BUYER')")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "process.env.REACT_APP_API_BASE_URL")
 public class WishlistController {
     @Autowired
     private WishlistService wishlistService;

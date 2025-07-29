@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true", allowedHeaders = {"Authorization", "Content-Type", "Cache-Control", "X-Requested-With", "Accept", "Origin"})
+@CrossOrigin(origins = "process.env.REACT_APP_API_BASE_URL", allowCredentials = "true", allowedHeaders = {"Authorization", "Content-Type", "Cache-Control", "X-Requested-With", "Accept", "Origin"})
 public class AuthController {
 
     @Autowired

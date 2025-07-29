@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/cart")
 @PreAuthorize("hasRole('ROLE_BUYER')")
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+@CrossOrigin(origins = "process.env.REACT_APP_API_BASE_URL", allowCredentials = "true")
 public class CartController {
 
     @Autowired

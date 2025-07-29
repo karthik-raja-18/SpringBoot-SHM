@@ -18,7 +18,7 @@ import java.util.HashMap;
 @RestController
 @RequestMapping("/api/user")
 @PreAuthorize("hasAnyRole('ROLE_BUYER', 'ROLE_SELLER')")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "process.env.REACT_APP_API_BASE_URL")
 public class UserController {
 
     @Autowired

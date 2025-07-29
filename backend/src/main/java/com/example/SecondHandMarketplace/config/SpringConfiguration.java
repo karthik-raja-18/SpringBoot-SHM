@@ -34,7 +34,7 @@ public class SpringConfiguration {
     private UserDetailsServiceImpl userDetailsService;
 
     @Value("${cors.allowed-origins}")
-    private String[] allowedOrigins;
+    private String allowedOriginsRaw;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -52,7 +52,10 @@ public class SpringConfiguration {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(Arrays.asList(allowedOrigins));
+
+        // Split comma-separated origins from .properties
+        List<String> allowedOrigins = Arrays.asList(allowedOriginsRaw.split(","));
+        config.setAllowedOrigins(allowedOrigins);
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
         config.setAllowedHeaders(Arrays.asList(
             "Authorization", "Content-Type", "Cache-Control", "Pragma",

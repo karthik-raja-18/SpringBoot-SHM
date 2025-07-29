@@ -2,13 +2,15 @@ import axios from 'axios';
 import { setupCache } from 'axios-cache-interceptor';
 
 // Create axios instance with base configuration
+console.log('Using API base URL:', process.env.REACT_APP_API_BASE_URL);
 const api = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: process.env.REACT_APP_API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
     'Cache-Control': 'no-cache',
   },
-  timeout: 10000, // 10 seconds
+  timeout: 30000, // 30 seconds
+  withCredentials: true, // Important for CORS with credentials
 });
 
 // Request interceptor: Always attach Authorization header if token exists
@@ -23,6 +25,9 @@ api.interceptors.request.use(
   },
   (error) => {
     console.error('[API REQUEST ERROR]', error);
+    if (error.code === 'ECONNABORTED') {
+      console.error('Request timed out. Please check your internet connection or try again later.');
+    }
     return Promise.reject(error);
   }
 );

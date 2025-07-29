@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  color: white;
+}
+
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-header {
+  background: #000000;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+.project-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(to right, #00bcd4, #9c27b0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-right .nav-link {
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+  font-weight: 500;
+  transition: background 0.3s, color 0.3s;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.nav-right .nav-link:hover {
+  background: linear-gradient(90deg, #673ab7, #e91e63);
+  color: white;
+}
+
+.products-section {
+  padding: 40px;
+  flex: 1;
+}
+
+.products-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.status-msg {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.status-msg.error {
+  color: #ff5252;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  justify-items: center;
+}
+
+.product-card {
+  background: #1f1f1f;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 0 10px #111;
+  transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s;
+  width: 260px;
+  min-height: 360px;
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+.product-card:hover {
+  transform: scale(1.04) translateY(-2px);
+  box-shadow: 0 8px 24px #111;
+}
+
+.product-img {
+  width: 100%;
+  max-width: 220px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  background: #222;
+  display: block;
+}
+
+.product-info h3 {
+  margin: 10px 0 5px;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.product-price {
+  color: #ffd54f;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.view-btn {
+  background: linear-gradient(90deg, #2196f3, #ff4081);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.view-btn:hover {
+  opacity: 0.85;
+}
+
+.home-footer {
+  background: #111;
+  padding: 16px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+}

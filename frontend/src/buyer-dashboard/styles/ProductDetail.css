@@ -1,0 +1,127 @@
+/* Container */
+.product-detail-container {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    color: #1f2937;
+  }
+  
+  /* Back Button Styled as Button */
+  .back-button {
+    display: inline-block;
+    padding: 10px 18px;
+    background: linear-gradient(90deg, #1f2937, #4b5563);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 24px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .back-button:hover {
+    background: linear-gradient(90deg, #111827, #374151);
+    transform: translateY(-2px);
+  }
+  
+  /* Main Layout */
+  .product-detail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 24px;
+    background-color: #f9fafb;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  }
+  
+  /* Image Section */
+  .product-image-container {
+    flex: 1;
+    min-width: 320px;
+    max-width: 500px;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Info Section */
+  .product-info {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .product-info h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+  }
+  
+  .price {
+    font-size: 22px;
+    font-weight: 600;
+    color: #b30505;
+  }
+  
+  .product-meta p {
+    font-size: 14px;
+    color: #4b5563;
+    margin: 4px 0;
+  }
+  
+  /* Quantity */
+  .quantity-selector {
+    margin-top: 10px;
+  }
+  
+  .quantity-selector label {
+    font-weight: 500;
+    color: #374151;
+    font-size: 15px;
+  }
+  
+  /* Description Section */
+  /* .product-description {
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  } */
+  
+  .product-description h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #111827;
+  }
+  
+  .product-description p {
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.6;
+  }
+  
+  /* Fallback and Error */
+  .loading,
+  .error {
+    padding: 80px 20px;
+    text-align: center;
+    font-size: 18px;
+    color: #ef4444;
+  }
+  

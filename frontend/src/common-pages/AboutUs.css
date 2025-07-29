@@ -1,0 +1,113 @@
+.about-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #fdfdfd;
+}
+
+.about-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.about-overlay p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+.about-section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.about-intro h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.about-intro p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.highlight-buy {
+  color: #000000;
+  font-weight: bold;
+}
+
+.highlight-sell {
+  color: #000000;
+  font-weight: bold;
+}
+
+.about-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 25px;
+  width: 280px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: #00796b;
+  margin-bottom: 10px;
+}
+
+.about-team {
+  background-color: #f4f4f4;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.about-team h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.team-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.team-member {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 220px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.team-member img {
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.team-member h4 {
+  margin: 10px 0 5px;
+  font-size: 1.2rem;
+}
+
+.about-footer {
+  background: #1f1c2c;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.95rem;
+}

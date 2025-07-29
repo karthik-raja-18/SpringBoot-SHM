@@ -1,0 +1,65 @@
+/* AddProduct.css */
+
+.add-product-page {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(252, 252, 252, 0.1);
+}
+
+.add-product-page h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #1f2937; /* Slate-800 */
+}
+
+.add-product-form label {
+  display: block;
+  margin-bottom: 1rem;
+  color: #374151; /* Slate-700 */
+  font-weight: 500;
+}
+
+.add-product-form input,
+.add-product-form textarea,
+.add-product-form select {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #d1d5db; /* Gray-300 */
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-top: 0.3rem;
+}
+
+.add-product-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.add-product-form button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #1f2937; /* Blue-500 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-product-form button:hover {
+  background-color: #2dbb5c; /* Blue-600 */
+}
+
+.form-error {
+  color: red;
+  margin-top: 1rem;
+}
+
+.form-success {
+  color: green;
+  margin-top: 1rem;
+}

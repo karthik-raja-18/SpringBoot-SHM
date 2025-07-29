@@ -1,0 +1,85 @@
+.seller-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #111111, #2c2c2c); /* Dark background */
+  padding: 1rem 2rem;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Left: Logo */
+.navbar-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #0cf;
+  flex: 1;
+}
+
+/* Center: Navigation Links */
+.navbar-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex: 2;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #d1d5db;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.navbar-links a:hover {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
+
+.active-link {
+  color: #0cf;
+  border-bottom: 2px solid #0cf;
+}
+
+/* Right: Logout Button */
+.logout-btn {
+  background-color: #ef4444;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  flex: 1;
+  max-width: 120px;
+  text-align: center;
+}
+
+.logout-btn:hover {
+  background-color: #dc2626;
+}
+
+/* Responsive for small devices */
+@media (max-width: 768px) {
+  .seller-navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-links {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .logout-btn {
+    align-self: flex-end;
+    margin-top: 0.5rem;
+  }
+}

@@ -1,0 +1,218 @@
+.orders-container {
+  padding: 2rem;
+  background: #ffffff;
+  min-height: 100vh;
+  color: #f1f1f1;
+}
+
+.orders-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #000000;
+}
+
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.order-card {
+  background: #2a2a2a;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-5px);
+}
+
+.order-header h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.order-date {
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.order-buyer-info {
+  margin: 1rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #404040;
+}
+
+.order-buyer-info p {
+  margin: 0 0 10px 0;
+  font-weight: 500;
+  color: #f1f1f1;
+}
+
+.buyer-contact-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.contact-buyer-btn,
+.email-link {
+  flex: 1;
+  min-width: 120px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.contact-buyer-btn {
+  background: linear-gradient(90deg, #00a97f, #018766);
+  color: white;
+}
+
+.contact-buyer-btn:hover:not(:disabled) {
+  background: linear-gradient(90deg, #018766, #016e54);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-buyer-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.contact-buyer-btn:disabled {
+  background: #444;
+  color: #888;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.contact-buyer-btn:disabled::after {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+  margin-left: 6px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.email-link {
+  background: #3a3a3a;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+.email-link:hover {
+  background: #444;
+  color: #fff;
+}
+
+.order-items {
+  border-top: 1px solid #444;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.order-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.item-image img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.item-details h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.item-details p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+.order-total {
+  border-top: 1px solid #444;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  font-size: 1.1rem;
+  color: #ffcc00;
+}
+
+.contact-section {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.contact-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffcc00;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.contact-btn:hover {
+  background-color: #e6b800;
+}
+
+.status-msg,
+.empty-orders {
+  text-align: center;
+  padding: 3rem;
+  color: #ccc;
+}
+
+.status-msg.error {
+  color: #ff4c4c;
+}
+
+.back-to-dashboard {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #66ccff;
+  text-decoration: none;
+}
+
+.back-to-dashboard:hover {
+  text-decoration: underline;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #fff;
+}

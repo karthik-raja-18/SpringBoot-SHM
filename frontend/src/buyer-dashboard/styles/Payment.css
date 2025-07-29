@@ -1,0 +1,131 @@
+.payment {
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
+
+.order-summary {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+}
+
+.order-summary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary h2 {
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.order-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.order-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+.item-details h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.item-details p {
+  font-size: 14px;
+  color: #666;
+  margin: 2px 0;
+}
+
+.item-total {
+  margin-left: auto;
+  font-weight: 600;
+  color: #000000;
+}
+
+.order-total {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+  text-align: right;
+}
+
+.payment-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.pay-now-btn,
+.cancel-btn {
+  padding: 10px 20px;
+  font-size: 15px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.pay-now-btn {
+  background: linear-gradient(90deg, #018766, #00a97f);
+  color: white;
+}
+
+.pay-now-btn:hover {
+  background: linear-gradient(90deg, #00a97f, #008d6d);
+}
+
+.cancel-btn {
+  background-color: #f4f4f4;
+  color: #444;
+  border: 1px solid #ccc;
+}
+
+.cancel-btn:hover {
+  background-color: #e6e6e6;
+}
+
+.payment-success {
+  text-align: center;
+  margin-top: 100px;
+  color: #00a97f;
+}
+
+.payment-success h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.payment-success p {
+  font-size: 16px;
+  color: #444;
+}

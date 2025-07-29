@@ -1,0 +1,77 @@
+/* BuyerDashboard.css */
+
+.buyer-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffffff; /* White background */
+  color: #1f2937; /* Dark text for readability */
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Navbar */
+.buyer-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #111111, #2c2c2c); /* Dark navbar */
+  padding: 1rem 2rem;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #0cf;
+}
+
+.navbar-center {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-center a {
+  text-decoration: none;
+  color: #d1d5db;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.navbar-center a:hover {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
+
+.navbar-center .active {
+  color: #0cf;
+  border-bottom: 2px solid #0cf;
+}
+
+.navbar-right button {
+  background-color: #ef4444;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.navbar-right button:hover {
+  background-color: #dc2626;
+}
+
+/* Main Content Area */
+.buyer-main-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #ffffff; /* White main content */
+  color: #1f2937; /* Dark text */
+}

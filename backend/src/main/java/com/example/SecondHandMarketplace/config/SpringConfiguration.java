@@ -19,6 +19,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.cors.CorsConfigurationSource;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Configuration
@@ -44,46 +45,51 @@ public class SpringConfiguration {
         return authProvider;
     }
 
-    // ✅ CORS configuration source bean
+    // CORS configuration source bean
     @Bean
-public CorsConfigurationSource corsConfigurationSource() {
-    CorsConfiguration config = new CorsConfiguration();
-    config.setAllowedOrigins(List.of("process.env.REACT_APP_API_BASE_URL"));
-    config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-    config.setAllowedHeaders(List.of(
-        "Authorization", "Content-Type", "Cache-Control", "Pragma", "X-Requested-With", "Accept", "Origin", "Expires"
-    ));
-    config.setExposedHeaders(List.of("Authorization"));
-    config.setAllowCredentials(true);
-    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-    source.registerCorsConfiguration("/**", config);
-    return source;
-}
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowedOrigins(Arrays.asList(
+            "https://smartbuy-puce.vercel.app",
+            "http://localhost:3000"
+        ));
+        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
+        config.setAllowedHeaders(Arrays.asList(
+            "Authorization", "Content-Type", "Cache-Control", "Pragma", 
+            "X-Requested-With", "Accept", "Origin", "Expires"
+        ));
+        config.setExposedHeaders(Arrays.asList("Authorization"));
+        config.setAllowCredentials(true);
+        config.setMaxAge(3600L);
+        
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", config);
+        return source;
+    }
 
-@Bean
-public org.springframework.web.filter.CorsFilter corsFilter() {
-    org.springframework.web.cors.CorsConfiguration config = new org.springframework.web.cors.CorsConfiguration();
-    config.setAllowedOrigins(List.of("process.env.REACT_APP_API_BASE_URL"));
-    config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-    config.setAllowedHeaders(List.of(
-        "Authorization", "Content-Type", "Cache-Control", "Pragma", "X-Requested-With", "Accept", "Origin", "Expires"
-    ));
-    config.setExposedHeaders(List.of("Authorization"));
-    config.setAllowCredentials(true);
-    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-    source.registerCorsConfiguration("/**", config);
-    return new org.springframework.web.filter.CorsFilter(source);
-}
+    @Bean
+    public org.springframework.web.filter.CorsFilter corsFilter() {
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowedOrigins(Arrays.asList("*"));  // Allow all origins for the filter
+        config.setAllowedMethods(Arrays.asList("*"));  // Allow all methods
+        config.setAllowedHeaders(Arrays.asList("*"));  // Allow all headers
+        config.setExposedHeaders(Arrays.asList("*"));  // Expose all headers
+        config.setAllowCredentials(true);
+        config.setMaxAge(3600L);
+        
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", config);
+        return new org.springframework.web.filter.CorsFilter(source);
+    }
 
-@Bean
-public org.springframework.boot.web.servlet.FilterRegistrationBean<org.springframework.web.filter.CorsFilter> corsFilterRegistration(
-        org.springframework.web.filter.CorsFilter corsFilter) {
-    org.springframework.boot.web.servlet.FilterRegistrationBean<org.springframework.web.filter.CorsFilter> registration =
+    @Bean
+    public org.springframework.boot.web.servlet.FilterRegistrationBean<org.springframework.web.filter.CorsFilter> corsFilterRegistration(
+            org.springframework.web.filter.CorsFilter corsFilter) {
+        org.springframework.boot.web.servlet.FilterRegistrationBean<org.springframework.web.filter.CorsFilter> registration =
             new org.springframework.boot.web.servlet.FilterRegistrationBean<>(corsFilter);
-    registration.setOrder(org.springframework.core.Ordered.HIGHEST_PRECEDENCE);
-    return registration;
-}
-
+        registration.setOrder(org.springframework.core.Ordered.HIGHEST_PRECEDENCE);
+        return registration;
+    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -91,11 +97,11 @@ public org.springframework.boot.web.servlet.FilterRegistrationBean<org.springfra
             .csrf(csrf -> csrf.disable())
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .authorizeHttpRequests(auth -> auth
+                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // Allow preflight requests
                 .requestMatchers(HttpMethod.GET, "/api/products").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/products/search").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/products/category/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/products/{id}").permitAll()
-                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/error").permitAll()
                 .requestMatchers("/static/**", "/css/**", "/js/**", "/images/**").permitAll()

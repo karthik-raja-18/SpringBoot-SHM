@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import productAPI from '../../api/productAPI';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/EditProduct.css';
 const EditProduct = () => {
   const { id } = useParams();
@@ -19,24 +21,32 @@ const EditProduct = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`/api/products/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
-      .then(res => {
+    const fetchProduct = async () => {
+      try {
+        const response = await productAPI.getProduct(id);
+        const product = response.data;
+        
         // Ensure all fields exist for controlled inputs
         setForm({
-          title: res.data.title || '',
-          description: res.data.description || '',
-          price: res.data.price || '',
-          category: res.data.category || '',
-          condition: res.data.condition || '',
-          imageUrl: res.data.imageUrl || '',
-          available: typeof res.data.available === 'boolean' ? res.data.available : true
+          title: product.title || '',
+          description: product.description || '',
+          price: product.price || '',
+          category: product.category || '',
+          condition: product.condition || '',
+          imageUrl: product.imageUrl || '',
+          available: typeof product.available === 'boolean' ? product.available : true
         });
+      } catch (err) {
+        console.error('Error fetching product:', err);
+        const errorMessage = err.response?.data?.message || 'Failed to load product';
+        setError(errorMessage);
+        toast.error(errorMessage);
+      } finally {
         setLoading(false);
-      })
-      .catch(err => {
-        setError('Failed to load product');
-        setLoading(false);
-      });
+      }
+    };
+
+    fetchProduct();
   }, [id]);
 
   const handleChange = e => {
@@ -52,23 +62,29 @@ const EditProduct = () => {
     setLoading(true);
     setError(null);
     setSuccess(false);
+    
     try {
-      await axios.put(`/api/products/${id}`,
-        {
-          ...form,
-          price: Number(form.price),
-        },
-        { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
-      );
+      const productData = {
+        ...form,
+        price: Number(form.price),
+      };
+      
+      await productAPI.updateProduct(id, productData);
+      
       setSuccess(true);
+      toast.success('Product updated successfully!');
       setTimeout(() => navigate('/seller/my-products'), 1000);
     } catch (err) {
-      setError(err.response?.data || 'Failed to update product');
+      console.error('Error updating product:', err);
+      const errorMessage = err.response?.data?.message || 'Failed to update product';
+      setError(errorMessage);
+      toast.error(errorMessage);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className="loading">Loading product details...</div>;
 
   return (
     <div className="edit-product-page">

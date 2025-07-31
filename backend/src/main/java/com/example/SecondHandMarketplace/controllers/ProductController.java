@@ -54,10 +54,20 @@ public class ProductController {
 
     // Get product by ID (public)
     @GetMapping("/{id}")
-    public ResponseEntity<ProductDTO> getProductById(@PathVariable Long id) {
-        Optional<Product> product = productRepository.findById(id);
-        if (product.isPresent() && product.get().isAvailable()) {
+    public ResponseEntity<?> getProductById(@PathVariable Long id) {
+        try {
+            Optional<Product> product = productRepository.findById(id);
+            
+            if (product.isEmpty()) {
+                return ResponseEntity.status(404).body("Product not found with id: " + id);
+            }
+            
             Product p = product.get();
+            
+            if (!p.isAvailable()) {
+                return ResponseEntity.status(404).body("Product with id " + id + " is no longer available");
+            }
+            
             ProductDTO dto = new ProductDTO();
             dto.setId(p.getId());
             dto.setTitle(p.getTitle());
@@ -68,13 +78,17 @@ public class ProductController {
             dto.setImageUrl(p.getImageUrl());
             dto.setCreatedAt(p.getCreatedAt());
             dto.setAvailable(p.isAvailable());
+            
             if (p.getSeller() != null) {
                 dto.setSellerId(p.getSeller().getId());
                 dto.setSellerName(p.getSeller().getName());
             }
+            
             return ResponseEntity.ok(dto);
+            
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error retrieving product: " + e.getMessage());
         }
-        return ResponseEntity.notFound().build();
     }
 
     // Search products (public)

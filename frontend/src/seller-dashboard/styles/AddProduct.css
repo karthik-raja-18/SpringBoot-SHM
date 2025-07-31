@@ -6,20 +6,26 @@
   background: #ffffff;
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(252, 252, 252, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .add-product-page h2 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   font-size: 1.8rem;
   color: #1f2937; /* Slate-800 */
 }
 
+.add-product-form .form-group {
+  margin-bottom: 1.2rem;
+}
+
 .add-product-form label {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
   color: #374151; /* Slate-700 */
   font-weight: 500;
+  font-size: 1rem;
 }
 
 .add-product-form input,
@@ -30,7 +36,9 @@
   border: 1px solid #d1d5db; /* Gray-300 */
   border-radius: 5px;
   font-size: 1rem;
-  margin-top: 0.3rem;
+  color: #111827; /* Text color - Gray-900 */
+  background-color: #ffffff; /* White background */
+  box-sizing: border-box;
 }
 
 .add-product-form textarea {
@@ -38,28 +46,38 @@
   min-height: 80px;
 }
 
+.add-product-form .checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
 .add-product-form button {
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
-  background-color: #1f2937; /* Blue-500 */
+  background-color: #1f2937; /* Slate-800 */
   color: white;
   border: none;
   border-radius: 5px;
   font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 .add-product-form button:hover {
-  background-color: #2dbb5c; /* Blue-600 */
+  background-color: #2dbb5c; /* Hover green */
 }
 
 .form-error {
   color: red;
   margin-top: 1rem;
+  font-size: 0.95rem;
 }
 
 .form-success {
   color: green;
   margin-top: 1rem;
+  font-size: 0.95rem;
 }

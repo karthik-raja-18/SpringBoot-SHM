@@ -1,6 +1,6 @@
 /* Base Layout */
 .register {
-  background: linear-gradient(to bottom right, #0d0d0d, #1c1c1c);
+  background: linear-gradient(to bottom right, #fbfbfb, #ffffff);
   color: #ffffff;
   min-height: 100vh;
   display: flex;

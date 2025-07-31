@@ -2,9 +2,10 @@ import axios from 'axios';
 import { setupCache } from 'axios-cache-interceptor';
 
 // Create axios instance with base configuration
-console.log('Using API base URL:', process.env.REACT_APP_API_BASE_URL);
+const PRODUCTION_API_URL = 'https://shm-backend.onrender.com';
+console.log('Using API base URL:', PRODUCTION_API_URL);
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL,
+  baseURL: PRODUCTION_API_URL,
   headers: {
     'Content-Type': 'application/json',
     'Cache-Control': 'no-cache',
